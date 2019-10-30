@@ -15,11 +15,8 @@ alias ls='ls -laF'
 # long list format including hidden files and include unit size
 alias ll='ls -la'
 
-# node
-alias kll='kill -9'
-alias fpid3='lsof -i:3000'
-alias fpid5='lsof -i:5858'
 
+alias kll='kill -9'
 alias md='mkdir'
 # alias fm='ps aux | grep mongo'
 # alias code='cd ~/code/'
@@ -44,7 +41,7 @@ alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 
-alias dev='cd ~/Documents/dev'
+alias src='cd ~/src'
 alias glog='git log --pretty=oneline --abbrev-commit'
 
 # History lists your previously entered commands
@@ -59,9 +56,6 @@ alias mkdir='mkdir -pv'
 # =================
 # Additional Aliases
 # =================
-
-# Kill Mongo process when it gets hung up
-alias monkill='ps aux | grep mongod'
 
 # Hide/show all desktop icons (useful when presenting)
 alias hide_desktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
@@ -112,9 +106,5 @@ alias get='git '
 
 alias zash='vim ~/dotfiles/zshrc'
 alias vimrc='vim ~/dotfiles/vimrc'
-# alias bhswp='cd ~/Sites/bhs-wp/wp-content/themes/bhs'
-# alias bhszz='cd ~/Sites/bhs-wp-zz/wp-content/themes/bhs'
 alias zfrash='source ~/dotfiles/zshrc'
 export PATH="/usr/local/sbin:$PATH"
-# alias ethminer='~/Desktop/ethminer/build/ethminer/ethminer'
-
