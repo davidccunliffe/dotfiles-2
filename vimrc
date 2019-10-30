@@ -22,10 +22,11 @@ Plug 'vim-airline/vim-airline' "Status bar
 Plug 'vim-airline/vim-airline-themes' "Applicable themes
 
 " Language Syntax Support
-Plug 'pangloss/vim-javascript' "JS highlighting
-Plug 'mxw/vim-jsx' "JSX syntax highlighting
-Plug 'jparise/vim-graphql' "graphql syntax highlighting
-Plug 'digitaltoad/vim-pug' "Pug highlighting
+Plug 'sheerun/vim-polyglot' "120 languages https://github.com/sheerun/vim-polyglot
+Plug 'rust-lang/rust.vim' "Rust language extension
+Plug 'hashivim/vim-terraform' "Terraform syntax highlighting
+Plug 'vim-syntastic/syntastic' "General syntax highlighting
+Plug 'juliosueiras/vim-terraform-completion' "Completion https://github.com/juliosueiras/vim-terraform-completion
 
 " Tools
 Plug 'mitermayer/vim-prettier'

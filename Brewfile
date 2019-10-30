@@ -1,6 +1,5 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
+tap 'homebrew/cask-fonts'
 tap 'macvim-dev/macvim'
 # tap 'caskroom/versions'
 
