@@ -22,24 +22,17 @@ Plug 'vim-airline/vim-airline' "Status bar
 Plug 'vim-airline/vim-airline-themes' "Applicable themes
 
 " Language Syntax Support
-Plug 'sheerun/vim-polyglot' "120 languages https://github.com/sheerun/vim-polyglot
-Plug 'rust-lang/rust.vim' "Rust language extension
-Plug 'hashivim/vim-terraform' "Terraform syntax highlighting
-Plug 'vim-syntastic/syntastic' "General syntax highlighting
-Plug 'juliosueiras/vim-terraform-completion' "Completion https://github.com/juliosueiras/vim-terraform-completion
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'hashivim/vim-terraform'
 
 " Tools
 Plug 'mitermayer/vim-prettier'
 Plug 'jiangmiao/auto-pairs' "Autocomplete brackets. 
-Plug '/usr/local/opt/fzf'
+Plug '/usr/local/opt/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
 Plug 'tpope/vim-fugitive' "Git tools
-
-
-Plug 'mattn/emmet-vim' "A bit annoying because it takes over my Tab key
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} "Nerdtree
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocompletion
+Plug 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -96,21 +89,6 @@ autocmd VimEnter * NERDTree "Toggles Nerdtree on vim open
 let NERDTreeQuitOnOpen = 1 "closes NerdTree when opening a file
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Conquer of Completion 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 1 tab == 2 spaces
@@ -162,12 +140,11 @@ let g:prettier#config#bracket_spacing = 'true'
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 
-" Emmet
-" let g:user_emmet_expandabbr_key='<Tab>'
-
-" Syntax stuff
-" This lets vim know that .prisma files should be graphql. 
-" Stolen from vim-graphql/ftdetect/graphql.vim
-au BufRead,BufNewFile *.prisma setfiletype graphql
-
 set secure "disables unsafe commands in project specific .vimrc
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Terraform syntax highlighting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:terraform_align=1 " Allow vim to align settings automattically with Tabularize
+let g:terraform_fold_sections=0 " Auto fold all code in TF
+let g:terraform_fmt_on_save=1 " Format on save
