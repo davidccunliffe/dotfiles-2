@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline-themes' "Applicable themes
 " Language Syntax Support
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
-
+Plug 'leafgarland/typescript-vim'
 " Tools
 Plug 'mitermayer/vim-prettier'
 Plug 'jiangmiao/auto-pairs' "Autocomplete brackets. 
@@ -148,3 +148,8 @@ set secure "disables unsafe commands in project specific .vimrc
 let g:terraform_align=1 " Allow vim to align settings automattically with Tabularize
 let g:terraform_fold_sections=0 " Auto fold all code in TF
 let g:terraform_fmt_on_save=1 " Format on save
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Typescript syntax highlighting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:typescript_indent_disable = 0 " Issues with custom indent if problems occur turn on by changing to 1 from 0

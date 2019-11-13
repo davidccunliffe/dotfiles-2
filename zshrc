@@ -57,7 +57,7 @@ AWS_DEFAULT_PROFILE='default'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node npm brew sudo alias-tips z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git node npm brew sudo alias-tips z zsh-autosuggestions zsh-syntax-highlighting terraform)
 
 
 # User configuration
@@ -109,3 +109,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# LESS Stuff
+export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
+export LESS=" -R"

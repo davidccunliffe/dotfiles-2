@@ -21,7 +21,15 @@ alias md='mkdir'
 # alias fm='ps aux | grep mongo'
 # alias code='cd ~/code/'
 
-# search all aliases (Jacob!)
+# Less syntax highlighting - insure you have source-highlight installed
+# (brew install source-highlight)
+alias less='less -m -N -g -i -J --underline-special --SILENT'
+alias more='less'
+
+# Use "highlight" in place of "cat"
+alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
+
+# search all aliases
 # falias "word to search for"
 alias falias='alias | grep '
 
