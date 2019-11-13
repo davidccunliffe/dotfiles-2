@@ -33,7 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive' "Git tools
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} "Nerdtree
 Plug 'godlygeek/tabular'
-
+Plug 'rkitover/vimpager', { 'dir': '~/.vim/plugged/vimpager', 'do': 'sudo make install' } "Less style pager using vim
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 " filetype plugin indent on    " automatically run by Plug 

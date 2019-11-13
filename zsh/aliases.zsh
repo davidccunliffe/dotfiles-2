@@ -23,8 +23,11 @@ alias md='mkdir'
 
 # Less syntax highlighting - insure you have source-highlight installed
 # (brew install source-highlight)
-alias less='less -m -N -g -i -J --underline-special --SILENT'
-alias more='less'
+#alias less='less -m -N -g -i -J --underline-special --SILENT'
+#alias more='less'
+
+alias less=$PAGER
+alias more=$PAGER
 
 # Use "highlight" in place of "cat"
 alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
@@ -111,7 +114,11 @@ alias up='git pull upstream master'
 # when I mispell git commands the following 2 commands help
 alias got='git '
 alias get='git '
+alias gopen='git-open'
 
+# =====================
+# Generic Aliases
+# =====================
 alias zash='vim ~/dotfiles/zshrc'
 alias vimrc='vim ~/dotfiles/vimrc'
 alias zfrash='source ~/dotfiles/zshrc'
