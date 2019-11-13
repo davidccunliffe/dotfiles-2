@@ -25,6 +25,7 @@ brew 'highlight'
 
 
 # Apps
+cask 'authy'
 cask 'arq'
 cask 'alfred'
 cask 'iterm2'
