@@ -123,3 +123,5 @@ alias zash='vim ~/dotfiles/zshrc'
 alias vimrc='vim ~/dotfiles/vimrc'
 alias zfrash='source ~/dotfiles/zshrc'
 export PATH="/usr/local/sbin:$PATH"
+
+alias journal='touch ~/journal/$(date +%F)-Journal.log && vim ~/journal/$(date +%F)-Journal.log'
