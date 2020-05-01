@@ -6,6 +6,8 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 
 POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
 
+# Multiplex path
+# export BYOBU_PREFIX=/usr/local
 # export the Android SDK info for React Native apps
 # export ANDROID_HOME=~/Library/Android/sdk
 # export PATH=$PATH:$ANDROID_HOME/tools
@@ -114,3 +116,26 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
 #export LESS=" -R"
 export PAGER=/usr/local/bin/vimpager
+eval "$(pyenv init -)"
+eval "$(pipenv --completion)"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Go development
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+
+# Setup Docker on DCHV01
+# https://www.serverlab.ca/tutorials/containers/docker/how-to-access-remote-docker-daemon-using-ssh/
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)

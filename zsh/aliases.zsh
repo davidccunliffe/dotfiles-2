@@ -4,7 +4,8 @@
 # For a full list of active aliases, run `alias`.
 
 # app opening aliases
-alias code='code .'
+#alias code='code .'
+#alias vim='nvim'
 
 # Silver searcher ignore file link
 alias ag='ag --path-to-ignore ~/dotfiles/ag/.ignore'
@@ -30,7 +31,7 @@ alias less=$PAGER
 alias more=$PAGER
 
 # Use "highlight" in place of "cat"
-alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
+# alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
 
 # search all aliases
 # falias "word to search for"
@@ -105,7 +106,6 @@ alias gb='git branch '
 alias gc='git commit'
 alias gacm='git add . && git commit -m '
 alias gd='git diff'
-alias go='git checkout '
 alias gob='git checkout -b '
 alias gk='gitk --all&'
 alias gx='gitx --all'
@@ -115,6 +115,14 @@ alias up='git pull upstream master'
 alias got='git '
 alias get='git '
 alias gopen='git-open'
+
+# ====================
+# Terraform Aliases
+# ====================
+alias tf='terraform'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfa='terraform apply -auto-approve'
 
 # =====================
 # Generic Aliases

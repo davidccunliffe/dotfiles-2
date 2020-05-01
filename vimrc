@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 " Themes
 Plug 'mhartington/oceanic-next'
 Plug 'jnurmine/zenburn' "Theme plugin
+" Plug 'whatyouhide/vim-gotham' "Theme plugin
 Plug 'ryanoasis/vim-devicons' "Icons for filetypes
 Plug 'vim-airline/vim-airline' "Status bar
 Plug 'vim-airline/vim-airline-themes' "Applicable themes
@@ -26,6 +27,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 " Tools
+Plug 'ervandew/supertab'
 Plug 'mitermayer/vim-prettier'
 Plug 'jiangmiao/auto-pairs' "Autocomplete brackets. 
 Plug '/usr/local/opt/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -34,16 +36,17 @@ Plug 'tpope/vim-fugitive' "Git tools
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} "Nerdtree
 Plug 'godlygeek/tabular'
 Plug 'rkitover/vimpager', { 'dir': '~/.vim/plugged/vimpager', 'do': 'sudo make install' } "Less style pager using vim
+Plug 'bagrat/vim-buffet'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 " filetype plugin indent on    " automatically run by Plug 
 " syntax enable " automatically run by Plug 
 
 " Theme settings 
-colors OceanicNext
-if (has("termguicolors"))
-  set termguicolors
-endif
+" colors OceanicNext
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
 
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,6 +73,10 @@ nnoremap zz :update<cr>
 
 " set clipboard to easily copy from vim and paste into OSx
 set clipboard=unnamed
+
+" map caps to esc
+au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => netrw
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -153,3 +160,34 @@ let g:terraform_fmt_on_save=1 " Format on save
 " => Typescript syntax highlighting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:typescript_indent_disable = 0 " Issues with custom indent if problems occur turn on by changing to 1 from 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function Py_Test()
+	let current_file_test = join([expand('%:r'), "test.py"], "_")
+  :exec '!clear' 
+	:exec '!pytest' current_file_test
+endfunction
+
+:nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
+:nnoremap	<buffer> <F9> :exec Py_Test()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => supertab
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "c-n"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim Buffed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
